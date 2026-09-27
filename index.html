@@ -46,6 +46,13 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .controls{min-width:0;max-width:100%}
 .controls button{flex:none}
 .controls select{flex:0 1 auto;min-width:0;max-width:100%;text-overflow:ellipsis}
+@media (max-width:560px){                                        /* phones: title on top, controls in one full-width row */
+  .bar{flex-direction:column;align-items:stretch;gap:10px;padding-left:16px;padding-right:16px}
+  .controls{flex-wrap:nowrap;justify-content:flex-start;gap:6px}
+  .controls select{flex:1 1 0;width:0;padding:8px 12px}
+  .controls button{padding:8px 12px}
+  .disclaimer{max-width:none}
+}
 #reset{opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s;pointer-events:none}
 #reset.show{opacity:1;transform:none;pointer-events:auto}
 .settings{position:fixed;z-index:10;right:12px;top:calc(60px + env(safe-area-inset-top,0px));width:min(340px,calc(100vw - 24px));
@@ -1482,13 +1489,13 @@ function hideAnother(){ anotherShown=false; seenCount=0; anotherBtn.classList.re
 anotherBtn.addEventListener('click',()=>{ if(anotherShown) resealPack(); });
 const _pa=new THREE.Vector3(), _pb=new THREE.Vector3();
 function positionAnother(){
-  const n=order.length, z=zAt(0,n), top=-0.25+CARD_H/2+0.35;
+  const n=order.length, z=zAt(0,n), below=-0.25-CARD_H/2-0.35;       // just under the stack
   cards.updateWorldMatrix(true,false);
-  _pa.set(-CARD_W/2,top,z).applyMatrix4(cards.matrixWorld).project(camera);
-  _pb.set(CARD_W/2,top,z).applyMatrix4(cards.matrixWorld).project(camera);
+  _pa.set(-CARD_W/2,below,z).applyMatrix4(cards.matrixWorld).project(camera);
+  _pb.set(CARD_W/2,below,z).applyMatrix4(cards.matrixWorld).project(camera);
   const x0=(_pa.x+1)/2*innerWidth, x1=(_pb.x+1)/2*innerWidth, y=(1-_pa.y)/2*innerHeight;
   anotherBtn.style.left=x0+'px'; anotherBtn.style.width=(x1-x0)+'px';
-  anotherBtn.style.top=(y-anotherBtn.offsetHeight)+'px';
+  anotherBtn.style.top=y+'px';
 }
 function showSwipeHint(){ if(swipedOnce) return; hintText.textContent='Swipe the top card in any direction'; hint.querySelector('svg').style.display='none'; hint.classList.remove('hidden'); }
 function hideSwipeHint(){ swipedOnce=true; hint.classList.add('hidden'); setTimeout(()=>{ hint.querySelector('svg').style.display=''; },400); }
@@ -1610,8 +1617,10 @@ window.addEventListener('keydown',e=>{
 
 // ---------- Resize ----------
 // Two framings: the pack, and a closer one once the cards are out so they fill the width
-let framing='pack', packDist=34, cardDist=24;
-const CARDS_Y=0.35;                                        // centre on the stack plus the button above it
+let framing='pack', packDist=34, cardDist=24, cardsY=0;
+// Cards framing: the stack plus the "Open another?" button below it, fitted into the space under the top bar
+const CARDS_TOP=-0.25+CARD_H/2+0.4, CARDS_BOTTOM=-0.25-CARD_H/2-0.35-0.8-0.4;   // stack top + margin, button gap + height + margin
+const barEl=document.querySelector('.bar');
 function distFor(fitW,fitH){
   const vfov=camera.fov*Math.PI/180, hfov=2*Math.atan(Math.tan(vfov/2)*camera.aspect);
   return Math.max(fitH/2/Math.tan(vfov/2),fitW/2/Math.tan(hfov/2));
@@ -1621,17 +1630,21 @@ function resize(){
   renderer.setSize(w,h,false);
   camera.aspect=w/h;
   packDist=distFor(W*1.6,H*1.55);                          // pack: most of the width on phones
-  cardDist=distFor(CARD_W/0.92,CARD_H+2.6);                // cards: ~92% of the width, room for the button
+  const barPx=Math.min(h*0.4,barEl.getBoundingClientRect().bottom), contentH=CARDS_TOP-CARDS_BOTTOM;
+  cardDist=distFor(CARD_W/0.92,contentH*h/(h-barPx));      // cards: ~92% of the width, or the height left under the bar
+  const span=2*Math.tan(camera.fov*Math.PI/360)*cardDist;  // world units visible top to bottom
+  cardsY=(CARDS_TOP+CARDS_BOTTOM)/2+barPx/2*span/h;         // shift so the content centres in the area below the bar
   gsap.killTweensOf(camera.position);
   camera.position.z=framing==='cards'?cardDist:packDist;
-  camera.position.y=framing==='cards'?CARDS_Y:0;
+  camera.position.y=framing==='cards'?cardsY:0;
   camera.updateProjectionMatrix();
 }
 function setFraming(f){
   framing=f;
-  gsap.to(camera.position,{z:f==='cards'?cardDist:packDist,y:f==='cards'?CARDS_Y:0,duration:0.8,ease:'power3.inOut'});
+  gsap.to(camera.position,{z:f==='cards'?cardDist:packDist,y:f==='cards'?cardsY:0,duration:0.8,ease:'power3.inOut'});
 }
 addEventListener('resize',resize); resize();
+if(window.ResizeObserver) new ResizeObserver(()=>resize()).observe(barEl);   // the bar grows once the set list and font load
 
 // ---------- Loop ----------
 const clock=new THREE.Clock();
