@@ -1,0 +1,896 @@
+{
+ "set": "Shrouded Fable",
+ "cards": [
+  {
+   "id": "sv06.5-001",
+   "name": "Joltik",
+   "number": "001",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-001.jpg"
+  },
+  {
+   "id": "sv06.5-002",
+   "name": "Galvantula",
+   "number": "002",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-002.jpg"
+  },
+  {
+   "id": "sv06.5-003",
+   "name": "Rowlet",
+   "number": "003",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-003.jpg"
+  },
+  {
+   "id": "sv06.5-004",
+   "name": "Dartrix",
+   "number": "004",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-004.jpg"
+  },
+  {
+   "id": "sv06.5-005",
+   "name": "Decidueye",
+   "number": "005",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv06.5-005.jpg"
+  },
+  {
+   "id": "sv06.5-006",
+   "name": "Tapu Bulu",
+   "number": "006",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-006.jpg"
+  },
+  {
+   "id": "sv06.5-007",
+   "name": "Houndour",
+   "number": "007",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-007.jpg"
+  },
+  {
+   "id": "sv06.5-008",
+   "name": "Houndoom",
+   "number": "008",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-008.jpg"
+  },
+  {
+   "id": "sv06.5-009",
+   "name": "Iron Moth",
+   "number": "009",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-009.jpg"
+  },
+  {
+   "id": "sv06.5-010",
+   "name": "Horsea",
+   "number": "010",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-010.jpg"
+  },
+  {
+   "id": "sv06.5-011",
+   "name": "Seadra",
+   "number": "011",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-011.jpg"
+  },
+  {
+   "id": "sv06.5-012",
+   "name": "Kingdra ex",
+   "number": "012",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv06.5-012.jpg"
+  },
+  {
+   "id": "sv06.5-013",
+   "name": "Sneasel",
+   "number": "013",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-013.jpg"
+  },
+  {
+   "id": "sv06.5-014",
+   "name": "Weavile",
+   "number": "014",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-014.jpg"
+  },
+  {
+   "id": "sv06.5-015",
+   "name": "Revavroom ex",
+   "number": "015",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-015.jpg"
+  },
+  {
+   "id": "sv06.5-016",
+   "name": "Drowzee",
+   "number": "016",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-016.jpg"
+  },
+  {
+   "id": "sv06.5-017",
+   "name": "Hypno",
+   "number": "017",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-017.jpg"
+  },
+  {
+   "id": "sv06.5-018",
+   "name": "Duskull",
+   "number": "018",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-018.jpg"
+  },
+  {
+   "id": "sv06.5-019",
+   "name": "Dusclops",
+   "number": "019",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-019.jpg"
+  },
+  {
+   "id": "sv06.5-020",
+   "name": "Dusknoir",
+   "number": "020",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv06.5-020.jpg"
+  },
+  {
+   "id": "sv06.5-021",
+   "name": "Cresselia",
+   "number": "021",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-021.jpg"
+  },
+  {
+   "id": "sv06.5-022",
+   "name": "Sylveon",
+   "number": "022",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-022.jpg"
+  },
+  {
+   "id": "sv06.5-023",
+   "name": "Croagunk",
+   "number": "023",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-023.jpg"
+  },
+  {
+   "id": "sv06.5-024",
+   "name": "Toxicroak",
+   "number": "024",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-024.jpg"
+  },
+  {
+   "id": "sv06.5-025",
+   "name": "Bloodmoon Ursaluna",
+   "number": "025",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-025.jpg"
+  },
+  {
+   "id": "sv06.5-026",
+   "name": "Slither Wing",
+   "number": "026",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-026.jpg"
+  },
+  {
+   "id": "sv06.5-027",
+   "name": "Zubat",
+   "number": "027",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-027.jpg"
+  },
+  {
+   "id": "sv06.5-028",
+   "name": "Golbat",
+   "number": "028",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-028.jpg"
+  },
+  {
+   "id": "sv06.5-029",
+   "name": "Crobat",
+   "number": "029",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv06.5-029.jpg"
+  },
+  {
+   "id": "sv06.5-030",
+   "name": "Absol",
+   "number": "030",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-030.jpg"
+  },
+  {
+   "id": "sv06.5-031",
+   "name": "Zorua",
+   "number": "031",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-031.jpg"
+  },
+  {
+   "id": "sv06.5-032",
+   "name": "Zoroark",
+   "number": "032",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-032.jpg"
+  },
+  {
+   "id": "sv06.5-033",
+   "name": "Inkay",
+   "number": "033",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-033.jpg"
+  },
+  {
+   "id": "sv06.5-034",
+   "name": "Malamar",
+   "number": "034",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-034.jpg"
+  },
+  {
+   "id": "sv06.5-035",
+   "name": "Yveltal",
+   "number": "035",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-035.jpg"
+  },
+  {
+   "id": "sv06.5-036",
+   "name": "Okidogi ex",
+   "number": "036",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-036.jpg"
+  },
+  {
+   "id": "sv06.5-037",
+   "name": "Munkidori ex",
+   "number": "037",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-037.jpg"
+  },
+  {
+   "id": "sv06.5-038",
+   "name": "Fezandipiti ex",
+   "number": "038",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-038.jpg"
+  },
+  {
+   "id": "sv06.5-039",
+   "name": "Pecharunt ex",
+   "number": "039",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-039.jpg"
+  },
+  {
+   "id": "sv06.5-040",
+   "name": "Genesect",
+   "number": "040",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-040.jpg"
+  },
+  {
+   "id": "sv06.5-041",
+   "name": "Cufant",
+   "number": "041",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-041.jpg"
+  },
+  {
+   "id": "sv06.5-042",
+   "name": "Copperajah",
+   "number": "042",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-042.jpg"
+  },
+  {
+   "id": "sv06.5-043",
+   "name": "Varoom",
+   "number": "043",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-043.jpg"
+  },
+  {
+   "id": "sv06.5-044",
+   "name": "Axew",
+   "number": "044",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-044.jpg"
+  },
+  {
+   "id": "sv06.5-045",
+   "name": "Fraxure",
+   "number": "045",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-045.jpg"
+  },
+  {
+   "id": "sv06.5-046",
+   "name": "Haxorus",
+   "number": "046",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv06.5-046.jpg"
+  },
+  {
+   "id": "sv06.5-047",
+   "name": "Kyurem",
+   "number": "047",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-047.jpg"
+  },
+  {
+   "id": "sv06.5-048",
+   "name": "Meowth",
+   "number": "048",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-048.jpg"
+  },
+  {
+   "id": "sv06.5-049",
+   "name": "Persian",
+   "number": "049",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-049.jpg"
+  },
+  {
+   "id": "sv06.5-050",
+   "name": "Eevee",
+   "number": "050",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-050.jpg"
+  },
+  {
+   "id": "sv06.5-051",
+   "name": "Furfrou",
+   "number": "051",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-051.jpg"
+  },
+  {
+   "id": "sv06.5-052",
+   "name": "Stufful",
+   "number": "052",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-052.jpg"
+  },
+  {
+   "id": "sv06.5-053",
+   "name": "Bewear",
+   "number": "053",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-053.jpg"
+  },
+  {
+   "id": "sv06.5-054",
+   "name": "Academy at Night",
+   "number": "054",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-054.jpg"
+  },
+  {
+   "id": "sv06.5-055",
+   "name": "Binding Mochi",
+   "number": "055",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-055.jpg"
+  },
+  {
+   "id": "sv06.5-056",
+   "name": "Cassiopeia",
+   "number": "056",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-056.jpg"
+  },
+  {
+   "id": "sv06.5-057",
+   "name": "Colress's Tenacity",
+   "number": "057",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-057.jpg"
+  },
+  {
+   "id": "sv06.5-058",
+   "name": "Dangerous Laser",
+   "number": "058",
+   "rarity": "ACE SPEC Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-058.jpg"
+  },
+  {
+   "id": "sv06.5-059",
+   "name": "Janine's Secret Art",
+   "number": "059",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-059.jpg"
+  },
+  {
+   "id": "sv06.5-060",
+   "name": "Neutralization Zone",
+   "number": "060",
+   "rarity": "ACE SPEC Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-060.jpg"
+  },
+  {
+   "id": "sv06.5-061",
+   "name": "Night Stretcher",
+   "number": "061",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-061.jpg"
+  },
+  {
+   "id": "sv06.5-062",
+   "name": "Poké Vital A",
+   "number": "062",
+   "rarity": "ACE SPEC Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-062.jpg"
+  },
+  {
+   "id": "sv06.5-063",
+   "name": "Powerglass",
+   "number": "063",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-063.jpg"
+  },
+  {
+   "id": "sv06.5-064",
+   "name": "Xerosic's Machinations",
+   "number": "064",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-064.jpg"
+  },
+  {
+   "id": "sv06.5-065",
+   "name": "Tapu Bulu",
+   "number": "065",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-065.jpg"
+  },
+  {
+   "id": "sv06.5-066",
+   "name": "Houndoom",
+   "number": "066",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-066.jpg"
+  },
+  {
+   "id": "sv06.5-067",
+   "name": "Horsea",
+   "number": "067",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-067.jpg"
+  },
+  {
+   "id": "sv06.5-068",
+   "name": "Duskull",
+   "number": "068",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-068.jpg"
+  },
+  {
+   "id": "sv06.5-069",
+   "name": "Dusclops",
+   "number": "069",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-069.jpg"
+  },
+  {
+   "id": "sv06.5-070",
+   "name": "Dusknoir",
+   "number": "070",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv06.5-070.jpg"
+  },
+  {
+   "id": "sv06.5-071",
+   "name": "Cresselia",
+   "number": "071",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-071.jpg"
+  },
+  {
+   "id": "sv06.5-072",
+   "name": "Munkidori",
+   "number": "072",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-072.jpg"
+  },
+  {
+   "id": "sv06.5-073",
+   "name": "Fezandipiti",
+   "number": "073",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-073.jpg"
+  },
+  {
+   "id": "sv06.5-074",
+   "name": "Okidogi",
+   "number": "074",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-074.jpg"
+  },
+  {
+   "id": "sv06.5-075",
+   "name": "Zorua",
+   "number": "075",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-075.jpg"
+  },
+  {
+   "id": "sv06.5-076",
+   "name": "Cufant",
+   "number": "076",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-076.jpg"
+  },
+  {
+   "id": "sv06.5-077",
+   "name": "Fraxure",
+   "number": "077",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-077.jpg"
+  },
+  {
+   "id": "sv06.5-078",
+   "name": "Persian",
+   "number": "078",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-078.jpg"
+  },
+  {
+   "id": "sv06.5-079",
+   "name": "Bewear",
+   "number": "079",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-079.jpg"
+  },
+  {
+   "id": "sv06.5-080",
+   "name": "Kingdra ex",
+   "number": "080",
+   "rarity": "Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv06.5-080.jpg"
+  },
+  {
+   "id": "sv06.5-081",
+   "name": "Revavroom ex",
+   "number": "081",
+   "rarity": "Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv06.5-081.jpg"
+  },
+  {
+   "id": "sv06.5-082",
+   "name": "Okidogi ex",
+   "number": "082",
+   "rarity": "Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-082.jpg"
+  },
+  {
+   "id": "sv06.5-083",
+   "name": "Munkidori ex",
+   "number": "083",
+   "rarity": "Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-083.jpg"
+  },
+  {
+   "id": "sv06.5-084",
+   "name": "Fezandipiti ex",
+   "number": "084",
+   "rarity": "Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-084.jpg"
+  },
+  {
+   "id": "sv06.5-085",
+   "name": "Pecharunt ex",
+   "number": "085",
+   "rarity": "Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-085.jpg"
+  },
+  {
+   "id": "sv06.5-086",
+   "name": "Cassiopeia",
+   "number": "086",
+   "rarity": "Ultra Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-086.jpg"
+  },
+  {
+   "id": "sv06.5-087",
+   "name": "Colress's Tenacity",
+   "number": "087",
+   "rarity": "Ultra Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-087.jpg"
+  },
+  {
+   "id": "sv06.5-088",
+   "name": "Janine's Secret Art",
+   "number": "088",
+   "rarity": "Ultra Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-088.jpg"
+  },
+  {
+   "id": "sv06.5-089",
+   "name": "Xerosic's Machinations",
+   "number": "089",
+   "rarity": "Ultra Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-089.jpg"
+  },
+  {
+   "id": "sv06.5-090",
+   "name": "Okidogi ex",
+   "number": "090",
+   "rarity": "Special illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-090.jpg"
+  },
+  {
+   "id": "sv06.5-091",
+   "name": "Munkidori ex",
+   "number": "091",
+   "rarity": "Special illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-091.jpg"
+  },
+  {
+   "id": "sv06.5-092",
+   "name": "Fezandipiti ex",
+   "number": "092",
+   "rarity": "Special illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-092.jpg"
+  },
+  {
+   "id": "sv06.5-093",
+   "name": "Pecharunt ex",
+   "number": "093",
+   "rarity": "Special illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-093.jpg"
+  },
+  {
+   "id": "sv06.5-094",
+   "name": "Cassiopeia",
+   "number": "094",
+   "rarity": "Special illustration rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-094.jpg"
+  },
+  {
+   "id": "sv06.5-095",
+   "name": "Pecharunt ex",
+   "number": "095",
+   "rarity": "Hyper rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv06.5-095.jpg"
+  },
+  {
+   "id": "sv06.5-096",
+   "name": "Earthen Vessel",
+   "number": "096",
+   "rarity": "Hyper rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-096.jpg"
+  },
+  {
+   "id": "sv06.5-097",
+   "name": "Powerglass",
+   "number": "097",
+   "rarity": "Hyper rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv06.5-097.jpg"
+  },
+  {
+   "id": "sv06.5-098",
+   "name": "Basic Darkness Energy",
+   "number": "098",
+   "rarity": "Hyper rare",
+   "category": "Energy",
+   "stage": null,
+   "file": "sv06.5-098.jpg"
+  },
+  {
+   "id": "sv06.5-099",
+   "name": "Basic Metal Energy",
+   "number": "099",
+   "rarity": "Hyper rare",
+   "category": "Energy",
+   "stage": null,
+   "file": "sv06.5-099.jpg"
+  }
+ ]
+}
