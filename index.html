@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Booster pack opening prototype</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --panel:#f4f2ee; --bg:#d8d5cf; --ink:#23211f; --ink-soft:#5d5953; --chip:rgba(255,255,255,.62); --chip-line:rgba(35,33,31,.14);
@@ -18,7 +18,7 @@
 *,*::before,*::after{box-sizing:inherit}
 html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{height:100%;margin:0;background:var(--bg);color:var(--ink);overflow:hidden;
-  font-family:"Bricolage Grotesque",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+  font-family:"Pixelify Sans",ui-monospace,monospace,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
 canvas#stage{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
 canvas#stage.grabbing{cursor:grabbing}
 .vignette{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 45%,transparent 40%,rgba(0,0,0,.28) 100%)}
@@ -127,8 +127,6 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
 renderer.outputColorSpace=THREE.SRGBColorSpace;
 renderer.toneMapping=THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure=1.05;
-renderer.shadowMap.enabled=true;
-renderer.shadowMap.type=THREE.VSMShadowMap;
 
 const scene=new THREE.Scene();
 const camera=new THREE.PerspectiveCamera(30,1,5,200);
@@ -159,8 +157,6 @@ scene.environment=makeEnvironment();
 const LIGHT_DEFAULTS={x:-0.3,y:0.55,bright:1.0,fx:0.8,follow:true};
 const LIGHT={...LIGHT_DEFAULTS};
 const spot=new THREE.SpotLight(0xfff3e6,2.6,0,0.36,0.55,0);
-spot.castShadow=true; spot.shadow.mapSize.set(2048,2048);
-spot.shadow.camera.near=5; spot.shadow.camera.far=90; spot.shadow.radius=14; spot.shadow.blurSamples=20; spot.shadow.bias=-0.0004;
 spot.target.position.set(0,0,0);
 scene.add(spot,spot.target);
 function spotPosFor(l){ return new THREE.Vector3(l.x*16,l.y*16,20); }
@@ -181,7 +177,7 @@ scene.add(new THREE.HemisphereLight(0xffffff,0x444048,0.1));
 
 const backdropMat=new THREE.MeshStandardMaterial({color:0x2a2830,roughness:1,metalness:0,envMapIntensity:0.06});
 const backdrop=new THREE.Mesh(new THREE.PlaneGeometry(220,220),backdropMat);
-backdrop.position.z=-11; backdrop.receiveShadow=true; scene.add(backdrop);
+backdrop.position.z=-11; scene.add(backdrop);
 function syncTheme(){
   const bg=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()||'#1d1c20';
   const c=new THREE.Color(bg); backdropMat.color.copy(c).multiplyScalar(1.15);
@@ -437,7 +433,6 @@ const sleeveMats=[];
   });
   const inner=new THREE.MeshStandardMaterial({color:0xc7cad0,metalness:1,roughness:0.34,normalMap:nMap,normalScale:new THREE.Vector2(0.6,0.6),alphaMap,alphaTest:0.5,side:THREE.BackSide});
   const mo=new THREE.Mesh(g,outer), mi=new THREE.Mesh(g,inner);
-  mo.castShadow=true; mi.castShadow=false;
   if(pi===1){ addTear(outer); addTear(inner); backMeshes.push(mo,mi); }
   sleeve.add(mo,mi); sleeveMeshes.push(mo,mi); sleeveMats.push(outer,inner);
 });
@@ -461,11 +456,30 @@ function setPackFront(url){
     if(token===packFrontToken) useFrontTex(defaultFrontTex);
   });
 }
-function newRip(){
-  currentRip=makeRip((Math.random()*2**31)|0);
-  const g=buildPrimitive(currentRip.data,-1), old=backMeshes[0].geometry;
-  for(const m of backMeshes){ m.geometry=g; m.updateMorphTargets(); }
+// Per-pack crease variation: scale the Blender crinkle shape key (DC/DCN) by a smooth random field over the
+// wrapper, so each pack deepens some creases and softens others. Returns a copy; the embedded mesh data is untouched.
+function varyCrinkle(d,seed){
+  const r=rand(seed), waves=[];
+  for(let k=0;k<4;k++){ const a=r()*Math.PI*2, f=1.5+r()*3; waves.push({fx:Math.cos(a)*f*Math.PI*2,fy:Math.sin(a)*f*Math.PI*2,ph:r()*6.28,amp:0.5+r()*0.5}); }
+  const norm=waves.reduce((t,w)=>t+w.amp,0);
+  const uv=d.UV, dc=new Float32Array(d.DC.length), dcn=new Float32Array(d.DCN.length);
+  for(let i=0;i<uv.length/2;i++){
+    let n=0; for(const w of waves) n+=w.amp*Math.sin(uv[i*2]*w.fx+uv[i*2+1]*w.fy+w.ph);
+    const wt=Math.min(1.6,Math.max(0.15,0.9+0.75*n/norm));        // 0.15x (nearly flat) to 1.6x (deeper)
+    for(let k=0;k<3;k++){ dc[i*3+k]=d.DC[i*3+k]*wt; dcn[i*3+k]=d.DCN[i*3+k]*wt; }
+  }
+  return {...d,DC:dc,DCN:dcn};
+}
+function swapGeometry(meshes,g){
+  const old=meshes[0].geometry;
+  for(const m of meshes){ m.geometry=g; m.updateMorphTargets(); }
   old.dispose();
+}
+function newRip(){
+  const seed=(Math.random()*2**31)|0;
+  currentRip=makeRip(seed);
+  swapGeometry(backMeshes,buildPrimitive(varyCrinkle(currentRip.data,seed^0x5bd1e995),-1));
+  swapGeometry(sleeveMeshes.slice(0,2),buildPrimitive(varyCrinkle(primData(MESH_MAN[0]),seed^0x27d4eb2f),1));
   paintTearMask(currentRip); tearTex.needsUpdate=true;
 }
 newRip();
@@ -914,6 +928,21 @@ const softShadowTex=(()=>{
 })();
 const SHADOW_SCALE_X=(256+80)/256, SHADOW_SCALE_Y=(340+80)/340;
 const shadowGeo=new THREE.PlaneGeometry(CARD_W*SHADOW_SCALE_X,CARD_H*SHADOW_SCALE_Y);
+// Pack drop shadow: a soft pack-sized blur just behind it, offset away from the light
+const packSize=new THREE.Box3().setFromObject(sleeve).getSize(new THREE.Vector3());
+const PACK_SHADOW={opacity:0.5,dx:0.3,dy:-0.4,gap:0.9};
+const packShadow=new THREE.Mesh(new THREE.PlaneGeometry(packSize.x*SHADOW_SCALE_X,packSize.y*SHADOW_SCALE_Y),
+  new THREE.MeshBasicMaterial({map:softShadowTex,color:0x000000,transparent:true,opacity:PACK_SHADOW.opacity,depthWrite:false,toneMapped:false}));
+scene.add(packShadow);
+function updatePackShadow(){
+  packShadow.visible=sleeve.visible&&st.fade>0.01;
+  if(!packShadow.visible) return;
+  const tip=Math.abs(Math.sin(st.tilt)), s=st.punch;
+  packShadow.scale.set(s,Math.max(0.02,Math.cos(st.tilt))*s,1);   // tipping the pack forward shortens its silhouette
+  packShadow.position.set(PACK_SHADOW.dx+pack.position.x,PACK_SHADOW.dy+pack.position.y-st.slide*22,
+    -(packSize.z/2+tip*packSize.y/2)*s-PACK_SHADOW.gap);          // stay behind the pack even when it's tipped
+  packShadow.material.opacity=PACK_SHADOW.opacity*st.fade;
+}
 (function buildCards(){
   const r=0.3, w=CARD_W, h=CARD_H, s=new THREE.Shape();
   s.moveTo(-w/2+r,-h/2); s.lineTo(w/2-r,-h/2); s.quadraticCurveTo(w/2,-h/2,w/2,-h/2+r);
@@ -1020,16 +1049,40 @@ function rollSlot(slot,used,fallback){
   for(const [k,p] of effectiveRates(slot)){ acc+=p; if(r<acc){ const c=pickWeighted([[k,1]],used); if(c) return {card:c,finish:FINISH_FOR[k]}; break; } }
   return fallback();
 }
+// God pack: every card slot is Illustration Rare or better. Real ones run roughly 1 in 500-1,000 packs;
+// English 151's were 7 Illustration Rares plus a starter line's 3 Special Illustration Rares.
+// Slots 8-9 skip whatever the previous pack had there, so back-to-back packs don't repeat those cards
+let lastSlot89=[];
+function withoutLastSlot89(used,roll){
+  const extra=lastSlot89.filter(id=>!used.has(id));
+  extra.forEach(id=>used.add(id));
+  try{ return roll(); }finally{ extra.forEach(id=>used.delete(id)); }
+}
+function rememberSlot89(P){ lastSlot89=[P[7],P[8]].map(s=>s&&s.card&&s.card.id).filter(Boolean); return P; }
+const GOD_DEFAULT=0.1;
+let godRate=GOD_DEFAULT, packTrickOn=false;
+function rollGodPack(){
+  const used=new Set(), P=[];
+  const hit=(opts)=>{ const c=pickWeighted(opts,used)||pickWeighted([['dr',1],['r',1]],used); return {card:c,finish:c?FINISH_FOR[tierOf(c)]||'holo':'plain'}; };
+  for(let i=0;i<7;i++) P.push(hit([['ir',10],['ur',1],['sur',1],['shiny',1]]));
+  withoutLastSlot89(used,()=>{ for(let i=0;i<2;i++) P.push(hit([['sir',6],['hr',2],['ur',1],['sur',1]])); });
+  P.push(hit([['sir',6],['hr',2],['ur',1],['sur',1]]));
+  P.push({card:pickWeighted([['energy',1]],used),finish:'plain'});                       // energy behind
+  return rememberSlot89(P);
+}
 function rollPack(){
+  if(Math.random()*100<godRate) return rollGodPack();
   const used=new Set(), P=[];
   for(let i=0;i<4;i++) P.push({card:pickWeighted([['c',1],['u',0.01]],used),finish:'plain'});
   for(let i=0;i<3;i++) P.push({card:pickWeighted([['u',1],['c',0.01]],used),finish:'plain'});
   const reverse=()=>({card:pickWeighted([['c',45],['u',35],['r',20]],used),finish:'reverse'});
-  P.push(rollSlot(PULL_SLOTS[0],used,reverse));                                          // slot 8
-  P.push(rollSlot(PULL_SLOTS[1],used,reverse));                                          // slot 9
+  withoutLastSlot89(used,()=>{
+    P.push(rollSlot(PULL_SLOTS[0],used,reverse));                                        // slot 8
+    P.push(rollSlot(PULL_SLOTS[1],used,reverse));                                        // slot 9
+  });
   P.push(rollSlot(PULL_SLOTS[2],used,()=>({card:pickWeighted([['r',1],['u',0.01]],used),finish:'holo'})));   // slot 10
   P.push({card:pickWeighted([['energy',1]],used),finish:'plain'});                       // energy behind
-  return P;
+  return rememberSlot89(P);
 }
 function fileToTexture(file){
   return new Promise(res=>{ const fr=new FileReader(); fr.onload=()=>{ const tx=loader.load(fr.result,()=>res(tx),undefined,()=>res(null)); tx.colorSpace=THREE.SRGBColorSpace; tx.anisotropy=renderer.capabilities.getMaxAnisotropy(); }; fr.onerror=()=>res(null); fr.readAsDataURL(file); });
@@ -1231,9 +1284,11 @@ cardInput.addEventListener('change',async()=>{
 });
 // ---------- Settings: spotlight + pull rates (remembered in this browser) ----------
 const SETTINGS_KEY='booster-settings-v1';
-function saveSettings(){ try{ localStorage.setItem(SETTINGS_KEY,JSON.stringify({light:LIGHT,pulls:pullRates})); }catch(e){} }
+function saveSettings(){ try{ localStorage.setItem(SETTINGS_KEY,JSON.stringify({light:LIGHT,pulls:pullRates,god:godRate,trick:packTrickOn})); }catch(e){} }
 try{ const s=JSON.parse(localStorage.getItem(SETTINGS_KEY)||'null');
   if(s&&s.light){ for(const k of ['x','y','bright','fx']) if(typeof s.light[k]==='number') LIGHT[k]=s.light[k]; if(typeof s.light.follow==='boolean') LIGHT.follow=s.light.follow; }
+  if(s&&typeof s.trick==='boolean') packTrickOn=s.trick;
+  if(s&&typeof s.god==='number') godRate=Math.min(100,Math.max(0,s.god));
   if(s&&s.pulls) for(const k in PULL_DEFAULTS) if(typeof s.pulls[k]==='number') pullRates[k]=Math.min(100,Math.max(PULL_DEFAULTS[k],s.pulls[k]));
 }catch(e){}
 applyLight();
@@ -1263,13 +1318,15 @@ document.getElementById('resetLight').addEventListener('click',()=>{
   Object.assign(LIGHT,LIGHT_DEFAULTS); applyLight(); saveSettings();
   [LIGHT.x,LIGHT.y,LIGHT.bright,LIGHT.fx].forEach((v,i)=>{ lightCtl[i].inp.value=v; lightCtl[i].show(); }); lightCtl.follow.checked=LIGHT.follow;
 });
-{ // toggle: light follows pointer / tilt
+function makeCheck(parent,id,label,checked,onChange){
   const row=document.createElement('div'); row.className='row check';
-  row.innerHTML='<label for="lfollow">Light follows your pointer or tilt</label><input type="checkbox" id="lfollow">';
-  const cb=row.querySelector('input'); cb.checked=LIGHT.follow;
-  cb.addEventListener('change',()=>{ LIGHT.follow=cb.checked; applyLight(); saveSettings(); });
-  lightRows.appendChild(row); lightCtl.follow=cb;
+  row.innerHTML=`<label for="${id}"></label><input type="checkbox" id="${id}">`;
+  row.querySelector('label').textContent=label;
+  const cb=row.querySelector('input'); cb.checked=checked;
+  cb.addEventListener('change',()=>onChange(cb.checked));
+  parent.appendChild(row); return cb;
 }
+lightCtl.follow=makeCheck(lightRows,'lfollow','Light follows your pointer or tilt',LIGHT.follow,v=>{ LIGHT.follow=v; applyLight(); saveSettings(); });
 const pullRows=document.getElementById('pullRows'), pullCtl={};
 function refreshPullLabels(){
   for(const slot of PULL_SLOTS){
@@ -1286,9 +1343,16 @@ for(const slot of PULL_SLOTS){
   const o=document.createElement('div'); o.className='row'; const sp=document.createElement('span'); sp.className='other'; o.appendChild(sp); pullRows.appendChild(o);
   pullCtl[slot.id]=sp;
 }
+{ // god pack chance
+  const h=document.createElement('h4'); h.textContent='God pack'; pullRows.appendChild(h);
+  const n=document.createElement('p'); n.className='note'; n.textContent='A pack where every card is Illustration Rare or better: 7 Illustration Rares and 3 Special Illustration or gold cards. Real ones are about 1 in 1,000 packs.'; pullRows.appendChild(n);
+  pullCtl.god=makeRow(pullRows,'pr_god','Chance per pack (default '+GOD_DEFAULT+'%)',0,100,0.1,godRate,v=>v.toFixed(1)+'%',v=>{ godRate=v; saveSettings(); });
+  const th=document.createElement('h4'); th.textContent='Pack trick'; pullRows.appendChild(th);
+  pullCtl.trick=makeCheck(pullRows,'pr_trick','Move the energy card from the back to the front after opening',packTrickOn,v=>{ packTrickOn=v; saveSettings(); });
+}
 refreshPullLabels();
 document.getElementById('resetPulls').addEventListener('click',()=>{
-  Object.assign(pullRates,PULL_DEFAULTS); saveSettings();
+  Object.assign(pullRates,PULL_DEFAULTS); godRate=GOD_DEFAULT; pullCtl.god.inp.value=GOD_DEFAULT; pullCtl.god.show(); saveSettings();
   for(const k in PULL_DEFAULTS){ pullCtl[k].inp.value=PULL_DEFAULTS[k]; }
   refreshPullLabels();
 });
@@ -1351,10 +1415,29 @@ function openPack(){
     .to(st,{open:1.3,duration:0.5,ease:'power1.out'},'<')
     .to(st,{fade:0,duration:0.35,ease:'none'},'-=0.35')
     .add(()=>setFraming('cards'),'-=0.45')
-    .add(()=>{ sleeve.visible=false; mode='done'; resetBtn.classList.add('show'); showSwipeHint(); });
+    .add(()=>{ sleeve.visible=false; if(!runPackTrick()) packReady(); });
+}
+function packReady(){ mode='done'; resetBtn.classList.add('show'); showSwipeHint(); }
+// Pack trick: once the pack is away, slide the energy card from the back of the stack up and over to the front
+let trickTl=null;
+function runPackTrick(){
+  const n=order.length, i=order[n-1];
+  if(!packTrickOn||n<2||i!==CARD_COUNT-1) return false;             // last slot is the energy; hidden when the set has none
+  mode='tricking';
+  const s=cardSlots[i], g=s.grp, b=s.base, up=b.y+CARD_H+0.4;
+  order.unshift(order.pop());
+  trickTl=gsap.timeline({onComplete:()=>{ trickTl=null; packReady(); }})
+    .to(g.position,{y:up,duration:0.5,ease:'power2.inOut',delay:0.15})
+    .to(g.rotation,{z:b.rz+0.05,duration:0.5,ease:'power2.inOut'},'<')
+    .add(()=>{ g.position.z=zAt(0,n)+0.03;                         // fully clear of the stack: safe to jump to the front
+      order.forEach((si,k)=>{ if(si!==i) gsap.to(cardSlots[si].grp.position,{z:zAt(k,n),duration:0.3,ease:'power2.out'}); }); })
+    .to(g.position,{y:b.y,z:zAt(0,n),duration:0.55,ease:'power3.inOut'})
+    .to(g.rotation,{z:b.rz,duration:0.55,ease:'power3.inOut'},'<');
+  return true;
 }
 function resealPack(){
   if(openTl){ openTl.kill(); openTl=null; }                     // stop a pack that's mid-open (e.g. the set changed)
+  if(trickTl){ trickTl.kill(); trickTl=null; }
   gsap.killTweensOf(st);
   hideAnother(); setFraming('pack');
   resetBtn.classList.remove('show');
@@ -1567,7 +1650,7 @@ function frame(){
   sleeveMeshes[0].renderOrder=sliding?11:0; sleeveMeshes[1].renderOrder=sliding?10:0;
 
   for(const s of cardSlots) if(s.grp.visible) updateCardFx(s.front);
-  updateCardShadows();
+  updateCardShadows(); updatePackShadow();
   if(anotherShown) positionAnother();
   renderer.render(scene,camera);
   requestAnimationFrame(frame);
