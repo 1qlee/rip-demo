@@ -441,6 +441,26 @@ const sleeveMats=[];
   if(pi===1){ addTear(outer); addTear(inner); backMeshes.push(mo,mi); }
   sleeve.add(mo,mi); sleeveMeshes.push(mo,mi); sleeveMats.push(outer,inner);
 });
+// Per-set pack art: cards/{set_name}/pack.jpg, falling back to the embedded front
+const defaultFrontTex=sleeveMats[0].map;
+let packFrontToken=0;
+function useFrontTex(tex){
+  const mat=sleeveMats[0], old=mat.map;
+  mat.map=tex; mat.needsUpdate=true;
+  if(old&&old!==defaultFrontTex&&old!==tex) old.dispose();
+}
+function setPackFront(url){
+  const token=++packFrontToken;
+  if(!url){ useFrontTex(defaultFrontTex); return; }
+  loader.load(url,tex=>{
+    if(token!==packFrontToken){ tex.dispose(); return; }
+    tex.colorSpace=THREE.SRGBColorSpace; tex.anisotropy=renderer.capabilities.getMaxAnisotropy();
+    useFrontTex(tex);
+  },undefined,e=>{
+    console.warn('No pack art at '+url+', using the default front',e);
+    if(token===packFrontToken) useFrontTex(defaultFrontTex);
+  });
+}
 function newRip(){
   currentRip=makeRip((Math.random()*2**31)|0);
   const g=buildPrimitive(currentRip.data,-1), old=backMeshes[0].geometry;
@@ -1110,7 +1130,7 @@ async function loadSet(name){
     const d=await r.json();
     const list=(d.cards||[]).filter(x=>x&&x.file).map(x=>({...x,url:base+x.file}));
     if(!list.length) throw new Error('manifest has no cards');
-    buildPool(list); dealPack();
+    buildPool(list); dealPack(); setPackFront(base+'pack.jpg');
     try{ localStorage.setItem(SET_KEY,name); }catch(e){ console.warn('Could not remember card set',e); }
     return true;
   }catch(e){ console.warn('Could not load card set '+name,e); return false; }
@@ -1523,7 +1543,12 @@ function frame(){
   sleeve.position.y=-st.slide*22;
   sleeve.rotation.z=Math.sin(st.slide*Math.PI)*0.05;
   const fading=st.fade<0.999;
-  sleeveMats.forEach(m=>{ m.transparent=fading; m.opacity=st.fade; m.depthWrite=!fading; });
+  // While the pack slides off, the cards are inside it: draw the front sheet (outer + inner, indices 0-1)
+  // after them without depth testing so the top card can't poke through where the sheet pinches toward the seam
+  const sliding=st.slide>0.001;
+  sleeveMats.forEach((m,i)=>{ const over=sliding&&i<2;
+    m.transparent=fading||over; m.opacity=st.fade; m.depthWrite=!fading&&!over; m.depthTest=!over; });
+  sleeveMeshes[0].renderOrder=sliding?11:0; sleeveMeshes[1].renderOrder=sliding?10:0;
 
   for(const s of cardSlots) if(s.grp.visible) updateCardFx(s.front);
   updateCardShadows();
