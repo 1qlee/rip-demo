@@ -1,0 +1,2210 @@
+{
+ "set": "Paldean Fates",
+ "cards": [
+  {
+   "id": "sv04.5-001",
+   "name": "Pineco",
+   "number": "001",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-001.jpg"
+  },
+  {
+   "id": "sv04.5-002",
+   "name": "Forretress ex",
+   "number": "002",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-002.jpg"
+  },
+  {
+   "id": "sv04.5-003",
+   "name": "Maractus",
+   "number": "003",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-003.jpg"
+  },
+  {
+   "id": "sv04.5-004",
+   "name": "Toedscool",
+   "number": "004",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-004.jpg"
+  },
+  {
+   "id": "sv04.5-005",
+   "name": "Toedscruel ex",
+   "number": "005",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-005.jpg"
+  },
+  {
+   "id": "sv04.5-006",
+   "name": "Espathra ex",
+   "number": "006",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-006.jpg"
+  },
+  {
+   "id": "sv04.5-007",
+   "name": "Charmander",
+   "number": "007",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-007.jpg"
+  },
+  {
+   "id": "sv04.5-008",
+   "name": "Charmeleon",
+   "number": "008",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-008.jpg"
+  },
+  {
+   "id": "sv04.5-009",
+   "name": "Magmar",
+   "number": "009",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-009.jpg"
+  },
+  {
+   "id": "sv04.5-010",
+   "name": "Magmortar",
+   "number": "010",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-010.jpg"
+  },
+  {
+   "id": "sv04.5-011",
+   "name": "Numel",
+   "number": "011",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-011.jpg"
+  },
+  {
+   "id": "sv04.5-012",
+   "name": "Camerupt",
+   "number": "012",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-012.jpg"
+  },
+  {
+   "id": "sv04.5-013",
+   "name": "Heat Rotom",
+   "number": "013",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-013.jpg"
+  },
+  {
+   "id": "sv04.5-014",
+   "name": "Charcadet",
+   "number": "014",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-014.jpg"
+  },
+  {
+   "id": "sv04.5-015",
+   "name": "Armarouge",
+   "number": "015",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-015.jpg"
+  },
+  {
+   "id": "sv04.5-016",
+   "name": "Lapras",
+   "number": "016",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-016.jpg"
+  },
+  {
+   "id": "sv04.5-017",
+   "name": "Frigibax",
+   "number": "017",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-017.jpg"
+  },
+  {
+   "id": "sv04.5-018",
+   "name": "Pikachu",
+   "number": "018",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-018.jpg"
+  },
+  {
+   "id": "sv04.5-019",
+   "name": "Raichu",
+   "number": "019",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-019.jpg"
+  },
+  {
+   "id": "sv04.5-020",
+   "name": "Chinchou",
+   "number": "020",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-020.jpg"
+  },
+  {
+   "id": "sv04.5-021",
+   "name": "Lanturn",
+   "number": "021",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-021.jpg"
+  },
+  {
+   "id": "sv04.5-022",
+   "name": "Kilowattrel",
+   "number": "022",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-022.jpg"
+  },
+  {
+   "id": "sv04.5-023",
+   "name": "Exeggcute",
+   "number": "023",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-023.jpg"
+  },
+  {
+   "id": "sv04.5-024",
+   "name": "Exeggutor",
+   "number": "024",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-024.jpg"
+  },
+  {
+   "id": "sv04.5-025",
+   "name": "Natu",
+   "number": "025",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-025.jpg"
+  },
+  {
+   "id": "sv04.5-026",
+   "name": "Xatu",
+   "number": "026",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-026.jpg"
+  },
+  {
+   "id": "sv04.5-027",
+   "name": "Ralts",
+   "number": "027",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-027.jpg"
+  },
+  {
+   "id": "sv04.5-028",
+   "name": "Kirlia",
+   "number": "028",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-028.jpg"
+  },
+  {
+   "id": "sv04.5-029",
+   "name": "Gardevoir ex",
+   "number": "029",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-029.jpg"
+  },
+  {
+   "id": "sv04.5-030",
+   "name": "Chimecho",
+   "number": "030",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-030.jpg"
+  },
+  {
+   "id": "sv04.5-031",
+   "name": "Mime Jr.",
+   "number": "031",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-031.jpg"
+  },
+  {
+   "id": "sv04.5-032",
+   "name": "Woobat",
+   "number": "032",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-032.jpg"
+  },
+  {
+   "id": "sv04.5-033",
+   "name": "Swoobat",
+   "number": "033",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-033.jpg"
+  },
+  {
+   "id": "sv04.5-034",
+   "name": "Cottonee",
+   "number": "034",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-034.jpg"
+  },
+  {
+   "id": "sv04.5-035",
+   "name": "Whimsicott",
+   "number": "035",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-035.jpg"
+  },
+  {
+   "id": "sv04.5-036",
+   "name": "Dedenne",
+   "number": "036",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-036.jpg"
+  },
+  {
+   "id": "sv04.5-037",
+   "name": "Mimikyu",
+   "number": "037",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-037.jpg"
+  },
+  {
+   "id": "sv04.5-038",
+   "name": "Fidough",
+   "number": "038",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-038.jpg"
+  },
+  {
+   "id": "sv04.5-039",
+   "name": "Dachsbun",
+   "number": "039",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-039.jpg"
+  },
+  {
+   "id": "sv04.5-040",
+   "name": "Ceruledge",
+   "number": "040",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-040.jpg"
+  },
+  {
+   "id": "sv04.5-041",
+   "name": "Flittle",
+   "number": "041",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-041.jpg"
+  },
+  {
+   "id": "sv04.5-042",
+   "name": "Greavard",
+   "number": "042",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-042.jpg"
+  },
+  {
+   "id": "sv04.5-043",
+   "name": "Houndstone",
+   "number": "043",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-043.jpg"
+  },
+  {
+   "id": "sv04.5-044",
+   "name": "Gimmighoul",
+   "number": "044",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-044.jpg"
+  },
+  {
+   "id": "sv04.5-045",
+   "name": "Mankey",
+   "number": "045",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-045.jpg"
+  },
+  {
+   "id": "sv04.5-046",
+   "name": "Primeape",
+   "number": "046",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-046.jpg"
+  },
+  {
+   "id": "sv04.5-047",
+   "name": "Annihilape",
+   "number": "047",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-047.jpg"
+  },
+  {
+   "id": "sv04.5-048",
+   "name": "Phanpy",
+   "number": "048",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-048.jpg"
+  },
+  {
+   "id": "sv04.5-049",
+   "name": "Donphan",
+   "number": "049",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-049.jpg"
+  },
+  {
+   "id": "sv04.5-050",
+   "name": "Barboach",
+   "number": "050",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-050.jpg"
+  },
+  {
+   "id": "sv04.5-051",
+   "name": "Clobbopus",
+   "number": "051",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-051.jpg"
+  },
+  {
+   "id": "sv04.5-052",
+   "name": "Grapploct",
+   "number": "052",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-052.jpg"
+  },
+  {
+   "id": "sv04.5-053",
+   "name": "Great Tusk ex",
+   "number": "053",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-053.jpg"
+  },
+  {
+   "id": "sv04.5-054",
+   "name": "Charizard ex",
+   "number": "054",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-054.jpg"
+  },
+  {
+   "id": "sv04.5-055",
+   "name": "Gastly",
+   "number": "055",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-055.jpg"
+  },
+  {
+   "id": "sv04.5-056",
+   "name": "Haunter",
+   "number": "056",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-056.jpg"
+  },
+  {
+   "id": "sv04.5-057",
+   "name": "Gengar",
+   "number": "057",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-057.jpg"
+  },
+  {
+   "id": "sv04.5-058",
+   "name": "Paldean Wooper",
+   "number": "058",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-058.jpg"
+  },
+  {
+   "id": "sv04.5-059",
+   "name": "Paldean Clodsire ex",
+   "number": "059",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-059.jpg"
+  },
+  {
+   "id": "sv04.5-060",
+   "name": "Scraggy",
+   "number": "060",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-060.jpg"
+  },
+  {
+   "id": "sv04.5-061",
+   "name": "Scrafty",
+   "number": "061",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-061.jpg"
+  },
+  {
+   "id": "sv04.5-062",
+   "name": "Maschiff",
+   "number": "062",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-062.jpg"
+  },
+  {
+   "id": "sv04.5-063",
+   "name": "Mabosstiff",
+   "number": "063",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-063.jpg"
+  },
+  {
+   "id": "sv04.5-064",
+   "name": "Varoom",
+   "number": "064",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-064.jpg"
+  },
+  {
+   "id": "sv04.5-065",
+   "name": "Revavroom",
+   "number": "065",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-065.jpg"
+  },
+  {
+   "id": "sv04.5-066",
+   "name": "Iron Treads ex",
+   "number": "066",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-066.jpg"
+  },
+  {
+   "id": "sv04.5-067",
+   "name": "Gholdengo",
+   "number": "067",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-067.jpg"
+  },
+  {
+   "id": "sv04.5-068",
+   "name": "Noibat",
+   "number": "068",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-068.jpg"
+  },
+  {
+   "id": "sv04.5-069",
+   "name": "Noivern ex",
+   "number": "069",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-069.jpg"
+  },
+  {
+   "id": "sv04.5-070",
+   "name": "Cyclizar",
+   "number": "070",
+   "rarity": "Rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-070.jpg"
+  },
+  {
+   "id": "sv04.5-071",
+   "name": "Lechonk",
+   "number": "071",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-071.jpg"
+  },
+  {
+   "id": "sv04.5-072",
+   "name": "Oinkologne",
+   "number": "072",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-072.jpg"
+  },
+  {
+   "id": "sv04.5-073",
+   "name": "Tandemaus",
+   "number": "073",
+   "rarity": "Common",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-073.jpg"
+  },
+  {
+   "id": "sv04.5-074",
+   "name": "Maushold",
+   "number": "074",
+   "rarity": "Uncommon",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-074.jpg"
+  },
+  {
+   "id": "sv04.5-075",
+   "name": "Squawkabilly ex",
+   "number": "075",
+   "rarity": "Double rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-075.jpg"
+  },
+  {
+   "id": "sv04.5-076",
+   "name": "Artazon",
+   "number": "076",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-076.jpg"
+  },
+  {
+   "id": "sv04.5-077",
+   "name": "Atticus",
+   "number": "077",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-077.jpg"
+  },
+  {
+   "id": "sv04.5-078",
+   "name": "Clive",
+   "number": "078",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-078.jpg"
+  },
+  {
+   "id": "sv04.5-079",
+   "name": "Electric Generator",
+   "number": "079",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-079.jpg"
+  },
+  {
+   "id": "sv04.5-080",
+   "name": "Iono",
+   "number": "080",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-080.jpg"
+  },
+  {
+   "id": "sv04.5-081",
+   "name": "Moonlit Hill",
+   "number": "081",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-081.jpg"
+  },
+  {
+   "id": "sv04.5-082",
+   "name": "Nemona",
+   "number": "082",
+   "rarity": "Common",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-082.jpg"
+  },
+  {
+   "id": "sv04.5-083",
+   "name": "Nemona's Backpack",
+   "number": "083",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-083.jpg"
+  },
+  {
+   "id": "sv04.5-084",
+   "name": "Nest Ball",
+   "number": "084",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-084.jpg"
+  },
+  {
+   "id": "sv04.5-085",
+   "name": "Paldean Student",
+   "number": "085",
+   "rarity": "Common",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-085.jpg"
+  },
+  {
+   "id": "sv04.5-086",
+   "name": "Paldean Student",
+   "number": "086",
+   "rarity": "Common",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-086.jpg"
+  },
+  {
+   "id": "sv04.5-087",
+   "name": "Professor's Research",
+   "number": "087",
+   "rarity": "Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-087.jpg"
+  },
+  {
+   "id": "sv04.5-088",
+   "name": "Professor's Research",
+   "number": "088",
+   "rarity": "Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-088.jpg"
+  },
+  {
+   "id": "sv04.5-089",
+   "name": "Rare Candy",
+   "number": "089",
+   "rarity": "Common",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-089.jpg"
+  },
+  {
+   "id": "sv04.5-090",
+   "name": "Technical Machine: Crisis Punch",
+   "number": "090",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-090.jpg"
+  },
+  {
+   "id": "sv04.5-091",
+   "name": "Ultra Ball",
+   "number": "091",
+   "rarity": "Uncommon",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-091.jpg"
+  },
+  {
+   "id": "sv04.5-092",
+   "name": "Oddish",
+   "number": "092",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-092.jpg"
+  },
+  {
+   "id": "sv04.5-093",
+   "name": "Gloom",
+   "number": "093",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-093.jpg"
+  },
+  {
+   "id": "sv04.5-094",
+   "name": "Vileplume",
+   "number": "094",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-094.jpg"
+  },
+  {
+   "id": "sv04.5-095",
+   "name": "Scyther",
+   "number": "095",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-095.jpg"
+  },
+  {
+   "id": "sv04.5-096",
+   "name": "Hoppip",
+   "number": "096",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-096.jpg"
+  },
+  {
+   "id": "sv04.5-097",
+   "name": "Skiploom",
+   "number": "097",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-097.jpg"
+  },
+  {
+   "id": "sv04.5-098",
+   "name": "Jumpluff",
+   "number": "098",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-098.jpg"
+  },
+  {
+   "id": "sv04.5-099",
+   "name": "Pineco",
+   "number": "099",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-099.jpg"
+  },
+  {
+   "id": "sv04.5-100",
+   "name": "Snover",
+   "number": "100",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-100.jpg"
+  },
+  {
+   "id": "sv04.5-101",
+   "name": "Abomasnow",
+   "number": "101",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-101.jpg"
+  },
+  {
+   "id": "sv04.5-102",
+   "name": "Smoliv",
+   "number": "102",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-102.jpg"
+  },
+  {
+   "id": "sv04.5-103",
+   "name": "Dolliv",
+   "number": "103",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-103.jpg"
+  },
+  {
+   "id": "sv04.5-104",
+   "name": "Arboliva",
+   "number": "104",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-104.jpg"
+  },
+  {
+   "id": "sv04.5-105",
+   "name": "Toedscool",
+   "number": "105",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-105.jpg"
+  },
+  {
+   "id": "sv04.5-106",
+   "name": "Capsakid",
+   "number": "106",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-106.jpg"
+  },
+  {
+   "id": "sv04.5-107",
+   "name": "Scovillain",
+   "number": "107",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-107.jpg"
+  },
+  {
+   "id": "sv04.5-108",
+   "name": "Rellor",
+   "number": "108",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-108.jpg"
+  },
+  {
+   "id": "sv04.5-109",
+   "name": "Charmander",
+   "number": "109",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-109.jpg"
+  },
+  {
+   "id": "sv04.5-110",
+   "name": "Charmeleon",
+   "number": "110",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-110.jpg"
+  },
+  {
+   "id": "sv04.5-111",
+   "name": "Paldean Tauros",
+   "number": "111",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-111.jpg"
+  },
+  {
+   "id": "sv04.5-112",
+   "name": "Entei",
+   "number": "112",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-112.jpg"
+  },
+  {
+   "id": "sv04.5-113",
+   "name": "Oricorio",
+   "number": "113",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-113.jpg"
+  },
+  {
+   "id": "sv04.5-114",
+   "name": "Charcadet",
+   "number": "114",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-114.jpg"
+  },
+  {
+   "id": "sv04.5-115",
+   "name": "Armarouge",
+   "number": "115",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-115.jpg"
+  },
+  {
+   "id": "sv04.5-116",
+   "name": "Slowpoke",
+   "number": "116",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-116.jpg"
+  },
+  {
+   "id": "sv04.5-117",
+   "name": "Slowbro",
+   "number": "117",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-117.jpg"
+  },
+  {
+   "id": "sv04.5-118",
+   "name": "Staryu",
+   "number": "118",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-118.jpg"
+  },
+  {
+   "id": "sv04.5-119",
+   "name": "Starmie",
+   "number": "119",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-119.jpg"
+  },
+  {
+   "id": "sv04.5-120",
+   "name": "Paldean Tauros",
+   "number": "120",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-120.jpg"
+  },
+  {
+   "id": "sv04.5-121",
+   "name": "Wiglett",
+   "number": "121",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-121.jpg"
+  },
+  {
+   "id": "sv04.5-122",
+   "name": "Wugtrio",
+   "number": "122",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-122.jpg"
+  },
+  {
+   "id": "sv04.5-123",
+   "name": "Finizen",
+   "number": "123",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-123.jpg"
+  },
+  {
+   "id": "sv04.5-124",
+   "name": "Palafin",
+   "number": "124",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-124.jpg"
+  },
+  {
+   "id": "sv04.5-125",
+   "name": "Veluza",
+   "number": "125",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-125.jpg"
+  },
+  {
+   "id": "sv04.5-126",
+   "name": "Dondozo",
+   "number": "126",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-126.jpg"
+  },
+  {
+   "id": "sv04.5-127",
+   "name": "Tatsugiri",
+   "number": "127",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-127.jpg"
+  },
+  {
+   "id": "sv04.5-128",
+   "name": "Frigibax",
+   "number": "128",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-128.jpg"
+  },
+  {
+   "id": "sv04.5-129",
+   "name": "Arctibax",
+   "number": "129",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-129.jpg"
+  },
+  {
+   "id": "sv04.5-130",
+   "name": "Baxcalibur",
+   "number": "130",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-130.jpg"
+  },
+  {
+   "id": "sv04.5-131",
+   "name": "Pikachu",
+   "number": "131",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-131.jpg"
+  },
+  {
+   "id": "sv04.5-132",
+   "name": "Raichu",
+   "number": "132",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-132.jpg"
+  },
+  {
+   "id": "sv04.5-133",
+   "name": "Voltorb",
+   "number": "133",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-133.jpg"
+  },
+  {
+   "id": "sv04.5-134",
+   "name": "Electrode",
+   "number": "134",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-134.jpg"
+  },
+  {
+   "id": "sv04.5-135",
+   "name": "Shinx",
+   "number": "135",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-135.jpg"
+  },
+  {
+   "id": "sv04.5-136",
+   "name": "Luxio",
+   "number": "136",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-136.jpg"
+  },
+  {
+   "id": "sv04.5-137",
+   "name": "Luxray",
+   "number": "137",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-137.jpg"
+  },
+  {
+   "id": "sv04.5-138",
+   "name": "Pachirisu",
+   "number": "138",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-138.jpg"
+  },
+  {
+   "id": "sv04.5-139",
+   "name": "Thundurus",
+   "number": "139",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-139.jpg"
+  },
+  {
+   "id": "sv04.5-140",
+   "name": "Toxel",
+   "number": "140",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-140.jpg"
+  },
+  {
+   "id": "sv04.5-141",
+   "name": "Toxtricity",
+   "number": "141",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-141.jpg"
+  },
+  {
+   "id": "sv04.5-142",
+   "name": "Pawmi",
+   "number": "142",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-142.jpg"
+  },
+  {
+   "id": "sv04.5-143",
+   "name": "Pawmo",
+   "number": "143",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-143.jpg"
+  },
+  {
+   "id": "sv04.5-144",
+   "name": "Pawmot",
+   "number": "144",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-144.jpg"
+  },
+  {
+   "id": "sv04.5-145",
+   "name": "Wattrel",
+   "number": "145",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-145.jpg"
+  },
+  {
+   "id": "sv04.5-146",
+   "name": "Kilowattrel",
+   "number": "146",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-146.jpg"
+  },
+  {
+   "id": "sv04.5-147",
+   "name": "Wigglytuff",
+   "number": "147",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-147.jpg"
+  },
+  {
+   "id": "sv04.5-148",
+   "name": "Abra",
+   "number": "148",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-148.jpg"
+  },
+  {
+   "id": "sv04.5-149",
+   "name": "Kadabra",
+   "number": "149",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-149.jpg"
+  },
+  {
+   "id": "sv04.5-150",
+   "name": "Cleffa",
+   "number": "150",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-150.jpg"
+  },
+  {
+   "id": "sv04.5-151",
+   "name": "Natu",
+   "number": "151",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-151.jpg"
+  },
+  {
+   "id": "sv04.5-152",
+   "name": "Xatu",
+   "number": "152",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-152.jpg"
+  },
+  {
+   "id": "sv04.5-153",
+   "name": "Ralts",
+   "number": "153",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-153.jpg"
+  },
+  {
+   "id": "sv04.5-154",
+   "name": "Kirlia",
+   "number": "154",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-154.jpg"
+  },
+  {
+   "id": "sv04.5-155",
+   "name": "Drifloon",
+   "number": "155",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-155.jpg"
+  },
+  {
+   "id": "sv04.5-156",
+   "name": "Drifblim",
+   "number": "156",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-156.jpg"
+  },
+  {
+   "id": "sv04.5-157",
+   "name": "Mime Jr.",
+   "number": "157",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-157.jpg"
+  },
+  {
+   "id": "sv04.5-158",
+   "name": "Spiritomb",
+   "number": "158",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-158.jpg"
+  },
+  {
+   "id": "sv04.5-159",
+   "name": "Klefki",
+   "number": "159",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-159.jpg"
+  },
+  {
+   "id": "sv04.5-160",
+   "name": "Mimikyu",
+   "number": "160",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-160.jpg"
+  },
+  {
+   "id": "sv04.5-161",
+   "name": "Dachsbun",
+   "number": "161",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-161.jpg"
+  },
+  {
+   "id": "sv04.5-162",
+   "name": "Ceruledge",
+   "number": "162",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-162.jpg"
+  },
+  {
+   "id": "sv04.5-163",
+   "name": "Rabsca",
+   "number": "163",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-163.jpg"
+  },
+  {
+   "id": "sv04.5-164",
+   "name": "Flittle",
+   "number": "164",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-164.jpg"
+  },
+  {
+   "id": "sv04.5-165",
+   "name": "Tinkatink",
+   "number": "165",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-165.jpg"
+  },
+  {
+   "id": "sv04.5-166",
+   "name": "Tinkatuff",
+   "number": "166",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-166.jpg"
+  },
+  {
+   "id": "sv04.5-167",
+   "name": "Tinkaton",
+   "number": "167",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-167.jpg"
+  },
+  {
+   "id": "sv04.5-168",
+   "name": "Houndstone",
+   "number": "168",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-168.jpg"
+  },
+  {
+   "id": "sv04.5-169",
+   "name": "Mankey",
+   "number": "169",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-169.jpg"
+  },
+  {
+   "id": "sv04.5-170",
+   "name": "Primeape",
+   "number": "170",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-170.jpg"
+  },
+  {
+   "id": "sv04.5-171",
+   "name": "Annihilape",
+   "number": "171",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-171.jpg"
+  },
+  {
+   "id": "sv04.5-172",
+   "name": "Paldean Tauros",
+   "number": "172",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-172.jpg"
+  },
+  {
+   "id": "sv04.5-173",
+   "name": "Riolu",
+   "number": "173",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-173.jpg"
+  },
+  {
+   "id": "sv04.5-174",
+   "name": "Lucario",
+   "number": "174",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-174.jpg"
+  },
+  {
+   "id": "sv04.5-175",
+   "name": "Hawlucha",
+   "number": "175",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-175.jpg"
+  },
+  {
+   "id": "sv04.5-176",
+   "name": "Nacli",
+   "number": "176",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-176.jpg"
+  },
+  {
+   "id": "sv04.5-177",
+   "name": "Naclstack",
+   "number": "177",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-177.jpg"
+  },
+  {
+   "id": "sv04.5-178",
+   "name": "Garganacl",
+   "number": "178",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-178.jpg"
+  },
+  {
+   "id": "sv04.5-179",
+   "name": "Glimmet",
+   "number": "179",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-179.jpg"
+  },
+  {
+   "id": "sv04.5-180",
+   "name": "Paldean Wooper",
+   "number": "180",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-180.jpg"
+  },
+  {
+   "id": "sv04.5-181",
+   "name": "Murkrow",
+   "number": "181",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-181.jpg"
+  },
+  {
+   "id": "sv04.5-182",
+   "name": "Sneasel",
+   "number": "182",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-182.jpg"
+  },
+  {
+   "id": "sv04.5-183",
+   "name": "Weavile",
+   "number": "183",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-183.jpg"
+  },
+  {
+   "id": "sv04.5-184",
+   "name": "Sableye",
+   "number": "184",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-184.jpg"
+  },
+  {
+   "id": "sv04.5-185",
+   "name": "Pawniard",
+   "number": "185",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-185.jpg"
+  },
+  {
+   "id": "sv04.5-186",
+   "name": "Bisharp",
+   "number": "186",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-186.jpg"
+  },
+  {
+   "id": "sv04.5-187",
+   "name": "Kingambit",
+   "number": "187",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-187.jpg"
+  },
+  {
+   "id": "sv04.5-188",
+   "name": "Mabosstiff",
+   "number": "188",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-188.jpg"
+  },
+  {
+   "id": "sv04.5-189",
+   "name": "Shroodle",
+   "number": "189",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-189.jpg"
+  },
+  {
+   "id": "sv04.5-190",
+   "name": "Grafaiai",
+   "number": "190",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-190.jpg"
+  },
+  {
+   "id": "sv04.5-191",
+   "name": "Scizor",
+   "number": "191",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-191.jpg"
+  },
+  {
+   "id": "sv04.5-192",
+   "name": "Varoom",
+   "number": "192",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-192.jpg"
+  },
+  {
+   "id": "sv04.5-193",
+   "name": "Revavroom",
+   "number": "193",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-193.jpg"
+  },
+  {
+   "id": "sv04.5-194",
+   "name": "Noibat",
+   "number": "194",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-194.jpg"
+  },
+  {
+   "id": "sv04.5-195",
+   "name": "Cyclizar",
+   "number": "195",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-195.jpg"
+  },
+  {
+   "id": "sv04.5-196",
+   "name": "Pidgey",
+   "number": "196",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-196.jpg"
+  },
+  {
+   "id": "sv04.5-197",
+   "name": "Pidgeotto",
+   "number": "197",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-197.jpg"
+  },
+  {
+   "id": "sv04.5-198",
+   "name": "Jigglypuff",
+   "number": "198",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-198.jpg"
+  },
+  {
+   "id": "sv04.5-199",
+   "name": "Doduo",
+   "number": "199",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-199.jpg"
+  },
+  {
+   "id": "sv04.5-200",
+   "name": "Dodrio",
+   "number": "200",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-200.jpg"
+  },
+  {
+   "id": "sv04.5-201",
+   "name": "Ditto",
+   "number": "201",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-201.jpg"
+  },
+  {
+   "id": "sv04.5-202",
+   "name": "Snorlax",
+   "number": "202",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-202.jpg"
+  },
+  {
+   "id": "sv04.5-203",
+   "name": "Wingull",
+   "number": "203",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-203.jpg"
+  },
+  {
+   "id": "sv04.5-204",
+   "name": "Pelipper",
+   "number": "204",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-204.jpg"
+  },
+  {
+   "id": "sv04.5-205",
+   "name": "Skwovet",
+   "number": "205",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-205.jpg"
+  },
+  {
+   "id": "sv04.5-206",
+   "name": "Greedent",
+   "number": "206",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-206.jpg"
+  },
+  {
+   "id": "sv04.5-207",
+   "name": "Lechonk",
+   "number": "207",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-207.jpg"
+  },
+  {
+   "id": "sv04.5-208",
+   "name": "Oinkologne",
+   "number": "208",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-208.jpg"
+  },
+  {
+   "id": "sv04.5-209",
+   "name": "Tandemaus",
+   "number": "209",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-209.jpg"
+  },
+  {
+   "id": "sv04.5-210",
+   "name": "Maushold",
+   "number": "210",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-210.jpg"
+  },
+  {
+   "id": "sv04.5-211",
+   "name": "Flamigo",
+   "number": "211",
+   "rarity": "Shiny rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-211.jpg"
+  },
+  {
+   "id": "sv04.5-212",
+   "name": "Forretress ex",
+   "number": "212",
+   "rarity": "Shiny Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-212.jpg"
+  },
+  {
+   "id": "sv04.5-213",
+   "name": "Toedscruel ex",
+   "number": "213",
+   "rarity": "Shiny Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-213.jpg"
+  },
+  {
+   "id": "sv04.5-214",
+   "name": "Espathra ex",
+   "number": "214",
+   "rarity": "Shiny Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-214.jpg"
+  },
+  {
+   "id": "sv04.5-215",
+   "name": "Alakazam ex",
+   "number": "215",
+   "rarity": "Shiny Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-215.jpg"
+  },
+  {
+   "id": "sv04.5-216",
+   "name": "Mew ex",
+   "number": "216",
+   "rarity": "Shiny Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-216.jpg"
+  },
+  {
+   "id": "sv04.5-217",
+   "name": "Gardevoir ex",
+   "number": "217",
+   "rarity": "Shiny Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-217.jpg"
+  },
+  {
+   "id": "sv04.5-218",
+   "name": "Glimmora ex",
+   "number": "218",
+   "rarity": "Shiny Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-218.jpg"
+  },
+  {
+   "id": "sv04.5-219",
+   "name": "Paldean Clodsire ex",
+   "number": "219",
+   "rarity": "Shiny Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-219.jpg"
+  },
+  {
+   "id": "sv04.5-220",
+   "name": "Noivern ex",
+   "number": "220",
+   "rarity": "Shiny Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-220.jpg"
+  },
+  {
+   "id": "sv04.5-221",
+   "name": "Pidgeot ex",
+   "number": "221",
+   "rarity": "Shiny Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-221.jpg"
+  },
+  {
+   "id": "sv04.5-222",
+   "name": "Wigglytuff ex",
+   "number": "222",
+   "rarity": "Shiny Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-222.jpg"
+  },
+  {
+   "id": "sv04.5-223",
+   "name": "Squawkabilly ex",
+   "number": "223",
+   "rarity": "Shiny Ultra Rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-223.jpg"
+  },
+  {
+   "id": "sv04.5-224",
+   "name": "Wugtrio",
+   "number": "224",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-224.jpg"
+  },
+  {
+   "id": "sv04.5-225",
+   "name": "Palafin",
+   "number": "225",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Stage1",
+   "file": "sv04.5-225.jpg"
+  },
+  {
+   "id": "sv04.5-226",
+   "name": "Pawmi",
+   "number": "226",
+   "rarity": "Illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-226.jpg"
+  },
+  {
+   "id": "sv04.5-227",
+   "name": "Clive",
+   "number": "227",
+   "rarity": "Ultra Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-227.jpg"
+  },
+  {
+   "id": "sv04.5-228",
+   "name": "Judge",
+   "number": "228",
+   "rarity": "Ultra Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-228.jpg"
+  },
+  {
+   "id": "sv04.5-229",
+   "name": "Nemona",
+   "number": "229",
+   "rarity": "Ultra Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-229.jpg"
+  },
+  {
+   "id": "sv04.5-230",
+   "name": "Paldean Student",
+   "number": "230",
+   "rarity": "Ultra Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-230.jpg"
+  },
+  {
+   "id": "sv04.5-231",
+   "name": "Paldean Student",
+   "number": "231",
+   "rarity": "Ultra Rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-231.jpg"
+  },
+  {
+   "id": "sv04.5-232",
+   "name": "Mew ex",
+   "number": "232",
+   "rarity": "Special illustration rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-232.jpg"
+  },
+  {
+   "id": "sv04.5-233",
+   "name": "Gardevoir ex",
+   "number": "233",
+   "rarity": "Special illustration rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-233.jpg"
+  },
+  {
+   "id": "sv04.5-234",
+   "name": "Charizard ex",
+   "number": "234",
+   "rarity": "Special illustration rare",
+   "category": "Pokemon",
+   "stage": "Stage2",
+   "file": "sv04.5-234.jpg"
+  },
+  {
+   "id": "sv04.5-235",
+   "name": "Arven",
+   "number": "235",
+   "rarity": "Special illustration rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-235.jpg"
+  },
+  {
+   "id": "sv04.5-236",
+   "name": "Clive",
+   "number": "236",
+   "rarity": "Special illustration rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-236.jpg"
+  },
+  {
+   "id": "sv04.5-237",
+   "name": "Iono",
+   "number": "237",
+   "rarity": "Special illustration rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-237.jpg"
+  },
+  {
+   "id": "sv04.5-238",
+   "name": "Nemona",
+   "number": "238",
+   "rarity": "Special illustration rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-238.jpg"
+  },
+  {
+   "id": "sv04.5-239",
+   "name": "Penny",
+   "number": "239",
+   "rarity": "Special illustration rare",
+   "category": "Trainer",
+   "stage": null,
+   "file": "sv04.5-239.jpg"
+  },
+  {
+   "id": "sv04.5-240",
+   "name": "Wo-Chien ex",
+   "number": "240",
+   "rarity": "Hyper rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-240.jpg"
+  },
+  {
+   "id": "sv04.5-241",
+   "name": "Chi-Yu ex",
+   "number": "241",
+   "rarity": "Hyper rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-241.jpg"
+  },
+  {
+   "id": "sv04.5-242",
+   "name": "Chien-Pao ex",
+   "number": "242",
+   "rarity": "Hyper rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-242.jpg"
+  },
+  {
+   "id": "sv04.5-243",
+   "name": "Miraidon ex",
+   "number": "243",
+   "rarity": "Hyper rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-243.jpg"
+  },
+  {
+   "id": "sv04.5-244",
+   "name": "Ting-Lu ex",
+   "number": "244",
+   "rarity": "Hyper rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-244.jpg"
+  },
+  {
+   "id": "sv04.5-245",
+   "name": "Koraidon ex",
+   "number": "245",
+   "rarity": "Hyper rare",
+   "category": "Pokemon",
+   "stage": "Basic",
+   "file": "sv04.5-245.jpg"
+  }
+ ]
+}

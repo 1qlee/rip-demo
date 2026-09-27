@@ -1,6 +1,0 @@
-Put the card images and manifest.json here.
-
-Either run get_paldean_fates.py from the folder above (it now saves straight into this "cards" folder),
-or copy everything from your existing "paldean_fates_cards" folder into this one.
-
-The page looks for cards/manifest.json. You can delete this text file afterwards.
