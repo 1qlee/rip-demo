@@ -22,12 +22,15 @@ cards/sets.json                     list of card set folders shown in the dropdo
 cards/{set_name}/manifest.json      card list with rarities (made by the script)
 cards/{set_name}/*.jpg              card images (made by the script)
 get_paldean_fates.py                downloads the cards from TCGdex into cards/paldean_fates/
+get_scarlet_violet.py               downloads every Scarlet & Violet set into cards/{set_name}/
 ```
 
 ## Getting the cards
 
 Run `python3 get_paldean_fates.py` (Mac/Linux) or `py get_paldean_fates.py` (Windows) in this folder.
 It saves every Paldean Fates card and a `manifest.json` into `cards/paldean_fates/` and registers the set in `cards/sets.json`.
+To get every Scarlet & Violet booster set instead, run `python3 get_scarlet_violet.py`
+(or pass set ids, e.g. `python3 get_scarlet_violet.py sv03.5 sv08.5`, for just those).
 
 ## Card sets
 
