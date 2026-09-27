@@ -38,6 +38,10 @@ canvas#stage.grabbing{cursor:grabbing}
 button{pointer-events:auto;font:inherit;font-size:14px;color:var(--ink);background:var(--chip);border:1px solid var(--chip-line);
   border-radius:999px;padding:8px 16px;cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.controls select{pointer-events:auto;font:inherit;font-size:14px;color:var(--ink);background:var(--chip);border:1px solid var(--chip-line);
+  border-radius:999px;padding:8px 16px;cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.controls select:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.controls select[hidden]{display:none}
 #reset{opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s;pointer-events:none}
 #reset.show{opacity:1;transform:none;pointer-events:auto}
 .settings{position:fixed;z-index:10;right:12px;top:calc(60px + env(safe-area-inset-top,0px));width:min(340px,calc(100vw - 24px));
@@ -75,7 +79,8 @@ button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 <div class="bar">
   <div class="title">Booster opening <span>prototype</span></div>
   <div class="controls">
-    <button id="loadCards" title="Choose the paldean_fates_cards folder">Load cards</button>
+    <select id="cardSet" aria-label="Card set" hidden></select>
+    <button id="loadCards" title="Choose a card set folder containing manifest.json">Load cards</button>
     <input id="cardFiles" type="file" webkitdirectory directory multiple hidden>
     <button id="settingsBtn" aria-expanded="false" aria-controls="settings">Settings</button>
     <button id="sound" aria-pressed="true">Sound on</button>
@@ -1079,17 +1084,52 @@ function flash(msg,after){ loadBtn.textContent=msg; setTimeout(()=>{ loadBtn.tex
 function libLabel(){ return library?'Replace cards':'Load cards'; }
 loadBtn.addEventListener('click',()=>{ if(!saving) cardInput.click(); });
 
+// ---------- Self-hosted card sets: cards/{set_name}/manifest.json ----------
+const setSelect=document.getElementById('cardSet');
+const SET_KEY='booster-card-set';
+function setLabel(name){ return name.split('_').filter(Boolean).map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' '); }
+async function listSets(){
+  try{                                                            // preferred: cards/sets.json written by the download script
+    const r=await fetch('cards/sets.json',{cache:'no-cache'});
+    if(r.ok){ const d=await r.json(); if(Array.isArray(d)&&d.length) return d.filter(n=>typeof n==='string'&&n); }
+  }catch(e){ console.warn('cards/sets.json unreadable, falling back to directory listing',e); }
+  try{                                                            // fallback: server directory listing (python -m http.server)
+    const r=await fetch('cards/',{cache:'no-cache'});
+    if(!r.ok) return [];
+    const doc=new DOMParser().parseFromString(await r.text(),'text/html');
+    const names=[...doc.querySelectorAll('a[href$="/"]')].map(a=>decodeURIComponent(a.getAttribute('href')).replace(/\/$/,'').split('/').pop())
+      .filter(n=>n&&n!=='..'&&n!=='.'&&!n.startsWith('.'));
+    return [...new Set(names)].sort();
+  }catch(e){ console.warn('Could not list cards/ folder',e); return []; }
+}
+async function loadSet(name){
+  const base='cards/'+encodeURIComponent(name)+'/';
+  try{
+    const r=await fetch(base+'manifest.json',{cache:'no-cache'});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d=await r.json();
+    const list=(d.cards||[]).filter(x=>x&&x.file).map(x=>({...x,url:base+x.file}));
+    if(!list.length) throw new Error('manifest has no cards');
+    buildPool(list); dealPack();
+    try{ localStorage.setItem(SET_KEY,name); }catch(e){ console.warn('Could not remember card set',e); }
+    return true;
+  }catch(e){ console.warn('Could not load card set '+name,e); return false; }
+}
+async function initSetPicker(){
+  const sets=await listSets();
+  setSelect.replaceChildren(...(sets.length?sets:['']).map(n=>{ const o=document.createElement('option'); o.value=n; o.textContent=n?setLabel(n):'No card sets'; return o; }));
+  setSelect.disabled=!sets.length; setSelect.hidden=false;
+  if(!sets.length){ loadBtn.hidden=false; return; }             // no sets found: fall back to picking a folder
+  let saved=null; try{ saved=localStorage.getItem(SET_KEY); }catch(e){ console.warn('Could not read saved card set',e); }
+  setSelect.value=sets.includes(saved)?saved:sets[0];
+  await loadSet(setSelect.value);
+}
+setSelect.addEventListener('change',()=>{ setSelect.blur(); loadSet(setSelect.value); });
+
 // Shared library: cards saved into this artifact so anyone opening the link gets them
 (async function initLibrary(){
   const c=window.claude;
-  if(!c||!c.use){                                                // self-hosted: use cards/manifest.json next to the page
-    try{
-      const r=await fetch('cards/manifest.json',{cache:'no-cache'});
-      if(r.ok){ const d=await r.json(); const list=(d.cards||[]).filter(x=>x&&x.file).map(x=>({...x,url:'cards/'+x.file}));
-        if(list.length){ buildPool(list); dealPack(); loadBtn.hidden=true; return; } }
-    }catch(e){}
-    loadBtn.hidden=false; return;                                 // no cards folder: pick one with Load cards
-  }
+  if(!c||!c.use){ initSetPicker(); return; }                     // self-hosted: pick a set from cards/{setName}/
   try{ [dbApi,assetsApi]=await Promise.all([c.use('db'),c.use('assets')]); }catch(e){}
   if(dbApi){
     try{

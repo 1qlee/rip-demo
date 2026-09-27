@@ -5,15 +5,17 @@
 #   Mac:      open Terminal, cd to this file's folder, run   python3 get_paldean_fates.py
 #   Windows:  open Command Prompt, cd to this file's folder, run   py get_paldean_fates.py
 #
-# It creates a folder "paldean_fates_cards" with the card images and a manifest.json.
-# Then open the prototype, click "Load cards" and choose that folder.
+# It creates cards/paldean_fates/ with the card images and a manifest.json, and adds
+# "paldean_fates" to cards/sets.json so the prototype's card set dropdown lists it.
 
 import json, os, sys, time, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 SET_ID = "sv04.5"
 API = "https://api.tcgdex.net/v2/en"
-OUT = "cards"
+CARDS_DIR = "cards"
+SET_FOLDER = "paldean_fates"
+OUT = os.path.join(CARDS_DIR, SET_FOLDER)
 HEADERS = {"User-Agent": "booster-prototype/1.0 (personal project)"}
 
 
@@ -57,6 +59,21 @@ def fetch_card(brief):
     }
 
 
+def register_set():
+    path = os.path.join(CARDS_DIR, "sets.json")
+    sets = []
+    if os.path.exists(path):
+        try:
+            with open(path, encoding="utf-8") as f:
+                sets = json.load(f)
+        except (OSError, ValueError) as e:
+            print(f"  couldn't read {path}, rewriting it ({e})")
+    if SET_FOLDER not in sets:
+        sets.append(SET_FOLDER)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(sorted(sets), f, indent=1)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     print("Fetching set list...")
@@ -75,6 +92,7 @@ def main():
                 print(f"  {done}/{len(briefs)}")
     with open(os.path.join(OUT, "manifest.json"), "w", encoding="utf-8") as f:
         json.dump({"set": s.get("name"), "cards": cards}, f, indent=1, ensure_ascii=False)
+    register_set()
     rarities = {}
     for c in cards:
         rarities[c["rarity"]] = rarities.get(c["rarity"], 0) + 1
