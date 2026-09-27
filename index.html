@@ -1016,7 +1016,7 @@ let cardPool=null;
 function tierOf(c){
   if((c.category||'').toLowerCase()==='energy') return 'energy';
   const r=(c.rarity||'').toLowerCase();
-  if(r.includes('hyper')) return 'hr';
+  if(r.includes('hyper')||r.includes('black white')) return 'hr';   // Black Bolt / White Flare's Black White Rare is their top chase tier
   if(r.includes('shiny')&&r.includes('ultra')) return 'sur';
   if(r.includes('ultra')) return 'ur';
   if(r.includes('double')) return 'dr';
@@ -1069,7 +1069,52 @@ function withoutLastSlot89(used,roll){
 function rememberSlot89(P){ lastSlot89=[P[7],P[8]].map(s=>s&&s.card&&s.card.id).filter(Boolean); return P; }
 const GOD_DEFAULT=0.1;
 let godRate=GOD_DEFAULT;
+// Set-specific god packs, keyed by tcgdex set id. Each roll returns the 10 visible cards; kinds are picked by weight.
+// Prismatic Evolutions: the relative odds of the three kinds aren't published, so these weights are a guess.
+// Poke Ball / Master Ball reverse holos use the regular reverse holo finish (no ball pattern foil yet).
+const EEVEE_LINE=/^(Eevee|Vaporeon|Jolteon|Flareon|Espeon|Umbreon|Leafeon|Glaceon|Sylveon)$/;
+const EEVEE_LINE_EX=/^(Eevee|Vaporeon|Jolteon|Flareon|Espeon|Umbreon|Leafeon|Glaceon|Sylveon) ex$/;
+const byNumber=(a,b)=>parseInt(a.number,10)-parseInt(b.number,10);
+const ballReverse=(n,used)=>Array.from({length:n},()=>({card:pickWeighted([['c',45],['u',35],['r',20]],used),finish:'reverse'}));
+function pickFrom(list,n,used){
+  const pool=list.filter(c=>!used.has(c.id)), out=[];
+  while(out.length<n&&pool.length){ const c=pool.splice(Math.floor(Math.random()*pool.length),1)[0]; used.add(c.id); out.push(c); }
+  return out;
+}
+const STARTER_LINES=[['Bulbasaur','Ivysaur','Venusaur ex'],['Charmander','Charmeleon','Charizard ex'],['Squirtle','Wartortle','Blastoise ex']];
+const findTier=(tier,name)=>(cardPool.tiers[tier]||[]).find(c=>c.name===name);
+const nineIrOneSir=[{weight:1, roll:used=>[...pickFrom(cardPool.tiers.ir||[],9,used).map(c=>({card:c,finish:'ir'})),
+  ...pickFrom(cardPool.tiers.sir||[],1,used).map(c=>({card:c,finish:'sir'}))]}];
+const SET_GOD_PACKS={
+  'sv03.5':[{weight:1, roll:used=>{                              // 151: two starter lines (4 IRs + 2 SIRs) after 4 regular cards
+    const lines=pickFrom(STARTER_LINES.map((l,i)=>({id:'line'+i,l})),2,new Set()).map(o=>o.l);
+    const hits=lines.flatMap(([a,b,ex])=>[findTier('ir',a),findTier('ir',b),findTier('sir',ex)]);
+    hits.forEach(c=>c&&used.add(c.id));
+    const regular=Array.from({length:4},()=>({card:pickWeighted([['c',1]],used),finish:'plain'}));
+    return [...regular,...hits.map(c=>({card:c,finish:c?FINISH_FOR[tierOf(c)]:'plain'}))]; }}],
+  'sv10.5b':nineIrOneSir,                                        // Black Bolt / White Flare: 9 IRs + 1 SIR
+  'sv10.5w':nineIrOneSir,
+  'sv08.5':[
+    {weight:1, roll:used=>{                                      // full god pack: Master Ball Eevee + all 9 Eeveelution ex SIRs
+      const eevee=cardPool.all.find(c=>c.name==='Eevee'), sirs=(cardPool.tiers.sir||[]).filter(c=>EEVEE_LINE_EX.test(c.name)).sort(byNumber);
+      [eevee,...sirs].forEach(c=>c&&used.add(c.id));
+      return [{card:eevee,finish:'reverse'},...sirs.map(c=>({card:c,finish:'sir'}))]; }},
+    {weight:4, roll:used=>[...ballReverse(7,used),                 // demi god pack: 7 Poke Ball reverses + 3 random SIRs
+      ...pickFrom(cardPool.tiers.sir||[],3,used).map(c=>({card:c,finish:'sir'}))]},
+    {weight:3, roll:used=>[...ballReverse(7,used),                 // Master Ball god pack: 7 Poke Ball reverses + 3 Master Ball Eeveelutions
+      ...pickFrom(cardPool.all.filter(c=>EEVEE_LINE.test(c.name)),3,used).map(c=>({card:c,finish:'reverse'}))]},
+  ],
+};
+function rollSetGodPack(kinds){
+  let x=Math.random()*kinds.reduce((t,k)=>t+k.weight,0);
+  const kind=kinds.find(k=>(x-=k.weight)<=0)||kinds[0], used=new Set(), P=kind.roll(used);
+  if(P.length!==10||P.some(s=>!s.card)) return null;             // set data missing something: fall back to the generic god pack
+  P.push({card:pickWeighted([['energy',1]],used),finish:'plain'});
+  return rememberSlot89(P);
+}
 function rollGodPack(){
+  const kinds=SET_GOD_PACKS[cardPool.setId], special=kinds&&rollSetGodPack(kinds);
+  if(special) return special;
   const used=new Set(), P=[];
   const hit=(opts)=>{ const c=pickWeighted(opts,used)||pickWeighted([['dr',1],['r',1]],used); return {card:c,finish:c?FINISH_FOR[tierOf(c)]||'holo':'plain'}; };
   for(let i=0;i<7;i++) P.push(hit([['ir',10],['ur',1],['sur',1],['shiny',1]]));
@@ -1103,7 +1148,7 @@ function cardTexture(c){
 }
 function buildPool(list,files){
   const tiers={}; for(const c of list){ const k=tierOf(c); (tiers[k]=tiers[k]||[]).push(c); }
-  cardPool={tiers,files:files||null}; return list.length;
+  cardPool={tiers,files:files||null,all:list,setId:String((list[0]&&list[0].id)||'').split('-')[0]}; return list.length;
 }
 let packToken=0;
 async function dealPack(){
@@ -1353,7 +1398,7 @@ for(const slot of PULL_SLOTS){
 }
 { // god pack chance
   const h=document.createElement('h4'); h.textContent='God pack'; pullRows.appendChild(h);
-  const n=document.createElement('p'); n.className='note'; n.textContent='A pack where every card is Illustration Rare or better: 7 Illustration Rares and 3 Special Illustration or gold cards. Real ones are about 1 in 1,000 packs.'; pullRows.appendChild(n);
+  const n=document.createElement('p'); n.className='note'; n.textContent='A pack where every card is Illustration Rare or better: 7 Illustration Rares and 3 Special Illustration or gold cards. Some sets have their own: 151 gives two starter evolution lines, Black Bolt and White Flare give 9 Illustration Rares and 1 SIR, and Prismatic Evolutions gives all 9 Eeveelution SIRs, 3 SIRs with Poke Ball reverses, or 3 Master Ball Eeveelutions. Real ones are about 1 in 1,000 packs.'; pullRows.appendChild(n);
   pullCtl.god=makeRow(pullRows,'pr_god','Chance per pack (default '+GOD_DEFAULT+'%)',0,100,0.1,godRate,v=>v.toFixed(1)+'%',v=>{ godRate=v; saveSettings(); });
   const th=document.createElement('h4'); th.textContent='Pack trick'; pullRows.appendChild(th);
   pullCtl.trick=makeCheck(pullRows,'pr_trick','Open packs with the energy card at the front instead of the back',packTrickOn,v=>{ packTrickOn=v; saveSettings(); });
