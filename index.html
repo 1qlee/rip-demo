@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Booster pack opening prototype</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
 <style>
 :root{
   --panel:#f4f2ee; --bg:#d8d5cf; --ink:#23211f; --ink-soft:#5d5953; --chip:rgba(255,255,255,.62); --chip-line:rgba(35,33,31,.14);
@@ -18,7 +18,7 @@
 *,*::before,*::after{box-sizing:inherit}
 html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
 body{height:100%;margin:0;background:var(--bg);color:var(--ink);overflow:hidden;
-  font-family:"Pixelify Sans",ui-monospace,monospace,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+  font-family:"DotGothic16",ui-monospace,monospace,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
 canvas#stage{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
 canvas#stage.grabbing{cursor:grabbing}
 .vignette{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 45%,transparent 40%,rgba(0,0,0,.28) 100%)}
@@ -528,7 +528,7 @@ uniform vec3 uSpotPos, uSpotDir; uniform float uSpotOuter, uSpotInner, uLightSca
 varying vec2 vUv; varying vec3 vW; varying vec3 vN;
 
 const float W=1.0; const float H=1.4098; const float PX=480.0;   // element box; 1 unit = 480 css px
-const vec4 ART=vec4(0.075,0.115,0.925,0.49);   // Scarlet & Violet art window (x0,y0,x1,y1 from top-left)
+const vec4 ART=vec4(0.075,0.096,0.925,0.474);   // Scarlet & Violet art window incl. its silver frame (x0,y0,x1,y1 from top-left, measured on 600x825 scans)
 
 vec3 toSRGB(vec3 c){ return mix(c*12.92,1.055*pow(max(c,0.0),vec3(1.0/2.4))-0.055,step(0.0031308,c)); }
 vec3 hsl(float h,float s,float l){ h/=360.0; s/=100.0; l/=100.0;
@@ -972,7 +972,7 @@ function updatePackShadow(){
   }
 })();
 
-let order=[];
+let order=[], packTrickOn=false;
 cardSlots.forEach(s=>{ s.base={x:s.grp.position.x,y:s.grp.position.y,rz:s.grp.rotation.z}; });
 function zAt(k,n){ return ((n-1)/2-k)*CARD_T; }
 function resetOrder(){
@@ -980,6 +980,7 @@ function resetOrder(){
   if(typeof swipe!=='undefined'&&swipe){ swipe=null; canvas.classList.remove('grabbing'); }
   cardSlots.forEach(s=>{ gsap.killTweensOf(s.grp.position); gsap.killTweensOf(s.grp.rotation); });
   order=cardSlots.map((s,i)=>i).filter(i=>cardSlots[i].grp.visible);
+  if(packTrickOn&&order.length>1&&order[order.length-1]===CARD_COUNT-1) order.unshift(order.pop());   // pack trick: energy (last slot, hidden if the set has none) goes in front
   order.forEach((i,k)=>{ const s=cardSlots[i]; s.grp.position.set(s.base.x,s.base.y,zAt(k,order.length)); s.grp.rotation.set(0,0,s.base.rz); });
 }
 resetOrder();
@@ -1060,7 +1061,7 @@ function withoutLastSlot89(used,roll){
 }
 function rememberSlot89(P){ lastSlot89=[P[7],P[8]].map(s=>s&&s.card&&s.card.id).filter(Boolean); return P; }
 const GOD_DEFAULT=0.1;
-let godRate=GOD_DEFAULT, packTrickOn=false;
+let godRate=GOD_DEFAULT;
 function rollGodPack(){
   const used=new Set(), P=[];
   const hit=(opts)=>{ const c=pickWeighted(opts,used)||pickWeighted([['dr',1],['r',1]],used); return {card:c,finish:c?FINISH_FOR[tierOf(c)]||'holo':'plain'}; };
@@ -1348,7 +1349,7 @@ for(const slot of PULL_SLOTS){
   const n=document.createElement('p'); n.className='note'; n.textContent='A pack where every card is Illustration Rare or better: 7 Illustration Rares and 3 Special Illustration or gold cards. Real ones are about 1 in 1,000 packs.'; pullRows.appendChild(n);
   pullCtl.god=makeRow(pullRows,'pr_god','Chance per pack (default '+GOD_DEFAULT+'%)',0,100,0.1,godRate,v=>v.toFixed(1)+'%',v=>{ godRate=v; saveSettings(); });
   const th=document.createElement('h4'); th.textContent='Pack trick'; pullRows.appendChild(th);
-  pullCtl.trick=makeCheck(pullRows,'pr_trick','Move the energy card from the back to the front after opening',packTrickOn,v=>{ packTrickOn=v; saveSettings(); });
+  pullCtl.trick=makeCheck(pullRows,'pr_trick','Open packs with the energy card at the front instead of the back',packTrickOn,v=>{ packTrickOn=v; saveSettings(); });
 }
 refreshPullLabels();
 document.getElementById('resetPulls').addEventListener('click',()=>{
@@ -1415,29 +1416,11 @@ function openPack(){
     .to(st,{open:1.3,duration:0.5,ease:'power1.out'},'<')
     .to(st,{fade:0,duration:0.35,ease:'none'},'-=0.35')
     .add(()=>setFraming('cards'),'-=0.45')
-    .add(()=>{ sleeve.visible=false; if(!runPackTrick()) packReady(); });
+    .add(()=>{ sleeve.visible=false; packReady(); });
 }
 function packReady(){ mode='done'; resetBtn.classList.add('show'); showSwipeHint(); }
-// Pack trick: once the pack is away, slide the energy card from the back of the stack up and over to the front
-let trickTl=null;
-function runPackTrick(){
-  const n=order.length, i=order[n-1];
-  if(!packTrickOn||n<2||i!==CARD_COUNT-1) return false;             // last slot is the energy; hidden when the set has none
-  mode='tricking';
-  const s=cardSlots[i], g=s.grp, b=s.base, up=b.y+CARD_H+0.4;
-  order.unshift(order.pop());
-  trickTl=gsap.timeline({onComplete:()=>{ trickTl=null; packReady(); }})
-    .to(g.position,{y:up,duration:0.5,ease:'power2.inOut',delay:0.15})
-    .to(g.rotation,{z:b.rz+0.05,duration:0.5,ease:'power2.inOut'},'<')
-    .add(()=>{ g.position.z=zAt(0,n)+0.03;                         // fully clear of the stack: safe to jump to the front
-      order.forEach((si,k)=>{ if(si!==i) gsap.to(cardSlots[si].grp.position,{z:zAt(k,n),duration:0.3,ease:'power2.out'}); }); })
-    .to(g.position,{y:b.y,z:zAt(0,n),duration:0.55,ease:'power3.inOut'})
-    .to(g.rotation,{z:b.rz,duration:0.55,ease:'power3.inOut'},'<');
-  return true;
-}
 function resealPack(){
   if(openTl){ openTl.kill(); openTl=null; }                     // stop a pack that's mid-open (e.g. the set changed)
-  if(trickTl){ trickTl.kill(); trickTl=null; }
   gsap.killTweensOf(st);
   hideAnother(); setFraming('pack');
   resetBtn.classList.remove('show');
